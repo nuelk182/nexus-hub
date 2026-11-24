@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b18">
+  <meta name="description" content="Nexus Quantom Analyst — developer, entrepreneur, AI enthusiast and trader building ideas into digital projects.">
+  <title>Portfolio | Nexus Hub</title>
+  <style>
+    :root {
+      --bg: #080b18;
+      --panel: #10172a;
+      --panel2: #0c1222;
+      --cyan: #00d9ff;
+      --purple: #9874ff;
+      --text: #f4f7ff;
+      --muted: #aab4cc;
+      --line: #273553;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 80% 0%, #19234b 0, transparent 32%), var(--bg);
+      color: var(--text);
+      font: 16px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1080px, 92%); margin: 0 auto; }
+    header {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 18px; padding: 22px 0; flex-wrap: wrap;
+      border-bottom: 1px solid rgba(170,180,204,.12);
+    }
+    .logo { font-weight: 900; letter-spacing: 1px; font-size: 21px; }
+    .logo span { color: var(--cyan); }
+    nav { display: flex; gap: 15px; flex-wrap: wrap; font-size: 14px; color: var(--muted); }
+    nav a { padding: 6px 0; }
+    nav a:hover, nav a:focus-visible { color: var(--cyan); }
+    .hero { padding: clamp(54px, 10vw, 105px) 0 60px; }
+    .eyebrow {
+      display: inline-block; color: var(--cyan); background: #0b2634;
+      border: 1px solid #154457; border-radius: 999px; padding: 6px 13px;
+      font-size: 12px; font-weight: 800; letter-spacing: 1.5px;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 34px; align-items: center; }
+    h1 { font-size: clamp(42px, 8vw, 78px); line-height: 1.04; letter-spacing: -2px; margin: 20px 0 16px; }
+    h1 span, .gradient {
+      background: linear-gradient(90deg, var(--cyan), var(--purple));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .lead { font-size: clamp(17px, 2.5vw, 21px); color: var(--muted); max-width: 700px; margin: 0; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 27px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 13px 20px; border-radius: 13px; font-weight: 800;
+      border: 1px solid var(--line); transition: transform .18s ease, border-color .18s ease;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: var(--cyan); }
+    .btn.primary { background: var(--cyan); color: #07101b; border-color: var(--cyan); }
+    .identity-card {
+      border: 1px solid var(--line); border-radius: 24px; padding: 27px;
+      background: linear-gradient(145deg, rgba(18,27,49,.95), rgba(12,18,34,.95));
+      box-shadow: 0 18px 55px rgba(0,0,0,.18);
+    }
+    .orbit {
+      width: 118px; height: 118px; border-radius: 50%; margin: 0 auto 20px;
+      display: grid; place-items: center; font-size: 45px;
+      background: radial-gradient(circle at 30% 25%, #254b6d, #171b42 60%, #10172a);
+      border: 1px solid #35466b; box-shadow: 0 0 35px rgba(0,217,255,.12);
+    }
+    .identity-card h2 { margin: 0; text-align: center; font-size: 22px; }
+    .identity-card p { margin: 5px 0 0; color: var(--muted); text-align: center; font-size: 14px; }
+    .identity-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .mini-tag { color: #d9e7ff; background: #18223a; border: 1px solid #2a3a5b; border-radius: 999px; padding: 5px 10px; font-size: 12px; }
+    section { padding: 34px 0; }
+    .section-heading { margin-bottom: 22px; }
+    .section-heading .kicker { color: var(--cyan); font-size: 12px; font-weight: 800; letter-spacing: 1.5px; }
+    h2 { font-size: clamp(27px, 4vw, 38px); line-height: 1.2; margin: 8px 0; }
+    .section-heading p { color: var(--muted); margin: 0; max-width: 700px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .card {
+      border: 1px solid var(--line); border-radius: 18px; padding: 22px;
+      background: linear-gradient(145deg, rgba(18,27,49,.88), rgba(12,18,34,.88));
+    }
+    .card .symbol { font-size: 25px; }
+    .card h3 { margin: 8px 0 7px; font-size: 20px; }
+    .card p { color: var(--muted); margin: 0; }
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .skill { border: 1px solid #2a3a5b; background: #111b30; color: #d9e7ff; padding: 9px 13px; border-radius: 12px; font-size: 14px; }
+    .note { color: var(--muted); font-size: 13px; margin-top: 15px; }
+    .cta {
+      margin: 25px 0 65px; padding: clamp(22px, 5vw, 38px);
+      border: 1px solid #28445d; border-radius: 22px;
+      background: linear-gradient(120deg, rgba(0,217,255,.09), rgba(152,116,255,.10));
+    }
+    .cta p { color: var(--muted); margin: 8px 0 0; }
+    footer { padding: 25px 0 35px; border-top: 1px solid rgba(170,180,204,.14); color: var(--muted); font-size: 13px; }
+    @media (max-width: 760px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .identity-card { max-width: 420px; }
+    }
+    @media (max-width: 560px) {
+      header { align-items: flex-start; flex-direction: column; }
+      nav { gap: 11px 15px; }
+      .grid { grid-template-columns: 1fr; }
+      h1 { letter-spacing: -1px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <a class="logo" href="index.html" aria-label="Nexus Hub home">NEXUS<span> HUB</span></a>
+    <nav aria-label="Main navigation">
+      <a href="business.html">Business</a>
+      <a href="portfolio.html" aria-current="page">Portfolio</a>
+      <a href="community.html">Community</a>
+      <a href="gaming.html">Gaming</a>
+      <a href="trading.html">Trading</a>
+      <a href="earn.html">Earn</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">NEXUS HUB · PERSONAL PORTFOLIO</span>
+          <h1>Ideas into action.<br><span>Progress into impact.</span></h1>
+          <p class="lead">
+            I'm Nexus Quantom Analyst — a developer, entrepreneur, AI enthusiast and trader
+            focused on learning, building digital projects, exploring new ideas and turning
+            ambitious concepts into practical work.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#projects">Explore my projects ↘</a>
+            <a class="btn" href="index.html">Back to Nexus Hub</a>
+          </div>
+        </div>
+        <aside class="identity-card">
+          <div class="orbit" aria-hidden="true">⚡</div>
+          <h2>Nexus Quantom Analyst</h2>
+          <p>Developer · Entrepreneur · AI · Trader</p>
+          <div class="identity-tags">
+            <span class="mini-tag">Build</span>
+            <span class="mini-tag">Learn</span>
+            <span class="mini-tag">Evolve</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="focus">
+      <div class="section-heading">
+        <span class="kicker">MY FOCUS</span>
+        <h2>Curiosity with a <span class="gradient">builder's mindset.</span></h2>
+        <p>I'm exploring several connected fields and using projects to develop my skills over time.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="symbol">💻</div>
+          <h3>Development</h3>
+          <p>Learning web technologies and creating useful, engaging digital experiences from the ground up.</p>
+        </article>
+        <article class="card">
+          <div class="symbol">🚀</div>
+          <h3>Entrepreneurship</h3>
+          <p>Exploring business ideas, solving problems and finding ways to turn creativity into value.</p>
+        </article>
+        <article class="card">
+          <div class="symbol">🤖</div>
+          <h3>Artificial intelligence</h3>
+          <p>Discovering how AI tools and emerging technology can support creativity, productivity and innovation.</p>
+        </article>
+        <article class="card">
+          <div class="symbol">📈</div>
+          <h3>Trading & market learning</h3>
+          <p>Studying markets, strategy and risk awareness as part of a continuous learning journey.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-heading">
+        <span class="kicker">PROJECTS & PROGRESS</span>
+        <h2>What I'm <span class="gradient">building.</span></h2>
+        <p>A growing showcase of experiments, ideas and projects. This portfolio will evolve as new work is completed.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="symbol">🌐</div>
+          <h3>Nexus Hub</h3>
+          <p>A multi-section digital hub connecting my portfolio, business interests, community, gaming, trading education and earning resources.</p>
+        </article>
+        <article class="card">
+          <div class="symbol">🧠</div>
+          <h3>AI & Digital Project Lab</h3>
+          <p>A space for experimenting with AI-assisted ideas, web projects and creative technology workflows.</p>
+        </article>
+        <article class="card">
+          <div class="symbol">🎮</div>
+          <h3>Gaming & Interactive Concepts</h3>
+          <p>Developing game concepts and exploring ways to create more interactive digital experiences.</p>
+        </article>
+        <article class="card">
+          <div class="symbol">📚</div>
+          <h3>Learning in Public</h3>
+          <p>Documenting progress, lessons learned and practical skills gained while building new things.</p>
+        </article>
+      </div>
+      <p class="note">Project descriptions are introductory summaries. Add screenshots, demos and completed-work details as each project develops.</p>
+    </section>
+
+    <section id="skills">
+      <div class="section-heading">
+        <span class="kicker">SKILLS I'M DEVELOPING</span>
+        <h2>Always <span class="gradient">learning.</span></h2>
+        <p>These are areas of ongoing learning and practice, not a claim of mastery.</p>
+      </div>
+      <div class="skills">
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">AI tools</span>
+        <span class="skill">Digital product ideas</span>
+        <span class="skill">Entrepreneurship</span>
+        <span class="skill">Market research</span>
+        <span class="skill">Creative problem-solving</span>
+      </div>
+    </section>
+
+    <section class="cta">
+      <span class="eyebrow">THE NEXT CHAPTER</span>
+      <h2>I'm just getting started.</h2>
+      <p>Follow the journey as ideas become projects, skills grow and Nexus Hub keeps evolving.</p>
+      <div class="actions">
+        <a class="btn primary" href="business.html">Explore Business</a>
+        <a class="btn" href="community.html">Visit Community</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    © <span id="year"></span> Nexus Quantom Analyst · Part of Nexus Hub
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
